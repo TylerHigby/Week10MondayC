@@ -1,3 +1,5 @@
+using carRoundup.Repositories;
+using carRoundUp.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +35,10 @@ public class Startup
 
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
+
+    services.AddSingleton<CarsRepository>();
+    services.AddScoped<CarsService>();
+
   }
 
   private void ConfigureCors(IServiceCollection services)
